@@ -1,0 +1,6 @@
+CREATE DATABASE news_mining;
+
+
+CREATE SCHEMA bronze;
+CREATE SCHEMA silver;
+CREATE SCHEMA gold;
