@@ -7,6 +7,7 @@ An end-to-end data pipeline implementing Medallion Architecture (Bronze, Silver,
 ![Data Architecture Diagram](docs/data_architecture_diagram.png)
 
 The system consists of four main stages:
+
 1. **Source**: Raw files (`data/fake.csv`, `data/News_Category_Dataset_v3.json`).
 2. **Data Warehouse (PostgreSQL)**:
    - **Bronze (Raw)**: Raw tables (`real_news`, `fake_news`). Full load batch ingestion with no transformation.
@@ -18,9 +19,6 @@ The system consists of four main stages:
 ## Data Flow
 
 ![Data Flow Chart](docs/data_flow_chart.png)
-
-- `real_news` (JSON) $\rightarrow$ `bronze.real_news` $\rightarrow$ `silver.real_news` $\rightarrow$ `gold.total_news`
-- `fake_news` (CSV) $\rightarrow$ `bronze.fake_news` $\rightarrow$ `silver.fake_news` $\rightarrow$ `gold.total_news`
 
 ## Project Structure
 
@@ -40,12 +38,14 @@ The system consists of four main stages:
 ## Setup
 
 1. **Install Dependencies**:
+
    ```bash
    pip install -r requirements.txt
    ```
 
 2. **Configure Environment Variables**:
    Copy `.envexample` to `.env` and configure credentials:
+
    ```env
    PG_USERNAME=postgres
    PG_PASSWORD=your_password
@@ -62,6 +62,7 @@ The system consists of four main stages:
 ## Execution
 
 1. **Bronze Ingestion (Python)**:
+
    ```bash
    python scripts/bronze/ingest_fake_news.py
    python scripts/bronze/ingest_real_news.py
