@@ -1,8 +1,19 @@
 """
-Overview: Ingests raw real news JSON data into the bronze layer table 'bronze.real_news'.
-Example Usage:
+===============================================================================
+Data Ingestion: Bronze Real News
+===============================================================================
+Script Purpose:
+This script loads raw real news records from data/News_Category_Dataset_v3.json
+into the PostgreSQL Bronze table 'bronze.real_news'.
+
+Usage:
     python scripts/bronze/ingest_real_news.py
+===============================================================================
 """
+
+# =============================================================================
+# Ingest News_Category_Dataset_v3.json into bronze.real_news
+# =============================================================================
 from pathlib import Path
 import pandas as pd 
 import db 

@@ -1,8 +1,19 @@
 """
-Overview: Ingests raw fake news CSV data into the bronze layer table 'bronze.fake_news'.
-Example Usage:
+===============================================================================
+Data Ingestion: Bronze Fake News
+===============================================================================
+Script Purpose:
+This script loads raw fake news records from data/fake.csv into the
+PostgreSQL Bronze table 'bronze.fake_news'.
+
+Usage:
     python scripts/bronze/ingest_fake_news.py
+===============================================================================
 """
+
+# =============================================================================
+# Ingest fake.csv into bronze.fake_news
+# =============================================================================
 from pathlib import Path
 import pandas as pd 
 import db 

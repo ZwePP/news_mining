@@ -79,6 +79,16 @@ The system consists of four main stages:
    CALL silver.load_silver();
    ```
 
+3. **Gold View Creation (PostgreSQL)**:
+   Create the unified view for modeling and analytics:
+   ```bash
+   psql -U postgres -d news_mining -f scripts/gold/ddl_gold.sql
+   ```
+   Query the integrated dataset:
+   ```sql
+   SELECT * FROM gold.total_news LIMIT 10;
+   ```
+
 ## Datasets
 
 - `fake.csv`: Fake news dataset containing text and metadata tagged as questionable/misleading.

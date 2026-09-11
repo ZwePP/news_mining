@@ -4,31 +4,34 @@ AI Assistant: Google Antigravity
 Date: 2026-09-11
 
 Role of AI:
-Documented the repository, embedded and explained architecture diagrams from ./docs, added code header comments with example usages, and logged changes as instructed in PROMPT.md.
+Documented the repository, embedded and explained architecture diagrams from ./docs, added standardized code header comments and section banners with example usages, documented the Gold layer, and logged changes as instructed in PROMPT.md.
 
 Changes Made:
 1. README.md:
-   - Documented project overview, medallion architecture (Bronze, Silver, Gold), environment setup, and execution steps.
+   - Documented project overview, medallion architecture (Bronze, Silver, Gold), environment setup, and execution steps (including Gold view creation).
    - Integrated and explained architectural diagrams from ./docs (docs/data_architecture_diagram.png, docs/data_flow_chart.png), covering source ingestion, warehouse layers, data mining, and visualization.
    - Acknowledged AI contribution.
 
 2. init_db.sql:
-   - Added overview comment and example psql execution command.
+   - Added standardized header comment (Script Purpose, Usage) and section banners for database/schema creation.
 
 3. scripts/bronze/db.py:
-   - Added overview docstring and engine creation example.
+   - Added standardized module docstring and section banner for engine initialization.
 
 4. scripts/bronze/ingest_fake_news.py:
-   - Added overview docstring and script execution example.
+   - Added standardized module docstring and section banner for fake news ingestion.
 
 5. scripts/bronze/ingest_real_news.py:
-   - Added overview docstring and script execution example.
+   - Added standardized module docstring and section banner for real news ingestion.
 
 6. scripts/silver/ddl_silver.sql:
-   - Added overview comment and psql execution example.
+   - Added standardized header comment and section banners for silver.real_news and silver.fake_news tables.
 
 7. scripts/silver/proc_load_silver.sql:
-   - Added overview comment and procedure CALL example.
+   - Added standardized header comment and section banner for the stored procedure.
 
-8. docs/ai_log.txt:
+8. scripts/gold/ddl_gold.sql:
+   - Added standardized header comment and section banner for gold.total_news view creation.
+
+9. docs/ai_log.txt:
    - Maintained log of all modifications and acknowledged AI contributions.

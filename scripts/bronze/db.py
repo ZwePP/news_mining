@@ -1,9 +1,20 @@
 """
-Overview: Creates a SQLAlchemy database engine using credentials loaded from .env.
-Example Usage:
+===============================================================================
+Database Connection Module: SQLAlchemy Engine
+===============================================================================
+Script Purpose:
+This module initializes a SQLAlchemy database engine using credentials
+loaded from environment variables (.env) to connect to PostgreSQL.
+
+Usage:
     from db import db_engine
     engine = db_engine()
+===============================================================================
 """
+
+# =============================================================================
+# Database Engine Initialization
+# =============================================================================
 from sqlalchemy import create_engine
 import os
 from dotenv import load_dotenv

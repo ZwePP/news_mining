@@ -1,8 +1,19 @@
 /*
-Overview: Stored procedure silver.load_silver() to clean and transform data from bronze to silver layer.
-Example Usage:
+===============================================================================
+Stored Procedure: Load Silver Layer
+===============================================================================
+Script Purpose:
+This stored procedure cleans, standardizes, and loads data from the Bronze layer
+into the Silver layer tables (silver.fake_news, silver.real_news).
+
+Usage:
     CALL silver.load_silver();
+===============================================================================
 */
+
+-- =============================================================================
+-- Stored Procedure: silver.load_silver()
+-- =============================================================================
 
 CREATE OR REPLACE PROCEDURE silver.load_silver()
 LANGUAGE plpgsql 
