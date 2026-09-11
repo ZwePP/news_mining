@@ -16,6 +16,7 @@ CREATE TABLE silver.fake_news(
 	description TEXT,
 	authors TEXT,
 	published_date DATE,
+	news_type TEXT,
 	dwh_create_time TIMESTAMP DEFAULT clock_timestamp()
 );
 
