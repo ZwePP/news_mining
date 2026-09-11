@@ -1,21 +1,36 @@
 # News Classification Data Pipeline
 
-A data pipeline implementing a Medallion Architecture (Bronze, Silver, Gold) on PostgreSQL to ingest, clean, and prepare real and fake news datasets for classification.
+An end-to-end data pipeline implementing Medallion Architecture (Bronze, Silver, Gold) in PostgreSQL with Python for ingesting, cleaning, and preparing real and fake news datasets for downstream classification and sentiment analysis.
 
 ## Architecture
 
-- **Bronze (Raw)**: Ingests raw news datasets as-is into PostgreSQL tables.
-- **Silver (Cleaned)**: Cleans text fields, standardizes dates, and filters missing values.
-- **Gold (Aggregated/Features)**: Planned layer for feature extraction and classification modeling.
+![Data Architecture Diagram](docs/data_architecture_diagram.png)
+
+The system consists of four main stages:
+1. **Source**: Raw files (`data/fake.csv`, `data/News_Category_Dataset_v3.json`).
+2. **Data Warehouse (PostgreSQL)**:
+   - **Bronze (Raw)**: Raw tables (`real_news`, `fake_news`). Full load batch ingestion with no transformation.
+   - **Silver (Cleaned)**: Standardized tables with cleaned text, normalized author fields, and parsed dates.
+   - **Gold (Business / Integrated)**: Integrated layer (`total_news`) combining cleaned sources for downstream consumption.
+3. **Data Mining (Python)**: News classification and sentiment analysis.
+4. **Data Visualization (Python)**: Exploratory data analysis and model performance reporting.
+
+## Data Flow
+
+![Data Flow Chart](docs/data_flow_chart.png)
+
+- `real_news` (JSON) $\rightarrow$ `bronze.real_news` $\rightarrow$ `silver.real_news` $\rightarrow$ `gold.total_news`
+- `fake_news` (CSV) $\rightarrow$ `bronze.fake_news` $\rightarrow$ `silver.fake_news` $\rightarrow$ `gold.total_news`
 
 ## Project Structure
 
 ```
-├── data/                    # Raw datasets (fake.csv, News_Category_Dataset_v3.json)
+├── data/                    # Source datasets (fake.csv, News_Category_Dataset_v3.json)
+├── docs/                    # Architecture diagrams and logs
 ├── scripts/
 │   ├── bronze/              # Database connection and bronze ingestion scripts
 │   ├── silver/              # Silver DDL and stored procedure for data cleaning
-│   └── gold/                # Gold layer scripts (future)
+│   └── gold/                # Gold layer integration scripts
 ├── init_db.sql              # Database and schema initialization script
 ├── requirements.txt         # Python package dependencies
 ├── .envexample              # Environment variable template
@@ -30,7 +45,7 @@ A data pipeline implementing a Medallion Architecture (Bronze, Silver, Gold) on 
    ```
 
 2. **Configure Environment Variables**:
-   Create a `.env` file based on `.envexample`:
+   Copy `.envexample` to `.env` and configure credentials:
    ```env
    PG_USERNAME=postgres
    PG_PASSWORD=your_password
@@ -44,7 +59,7 @@ A data pipeline implementing a Medallion Architecture (Bronze, Silver, Gold) on 
    psql -U postgres -f init_db.sql
    ```
 
-## Pipeline Execution
+## Execution
 
 1. **Bronze Ingestion (Python)**:
    ```bash
@@ -58,7 +73,7 @@ A data pipeline implementing a Medallion Architecture (Bronze, Silver, Gold) on 
    psql -U postgres -d news_mining -f scripts/silver/ddl_silver.sql
    psql -U postgres -d news_mining -f scripts/silver/proc_load_silver.sql
    ```
-   Execute the procedure to clean and load data:
+   Execute the procedure:
    ```sql
    CALL silver.load_silver();
    ```
@@ -70,4 +85,4 @@ A data pipeline implementing a Medallion Architecture (Bronze, Silver, Gold) on 
 
 ## AI Acknowledgment
 
-This documentation and code overview comments were generated with the assistance of AI (Google Antigravity) to document the repository structure, workflow, and code usage.
+Project documentation, diagram integration, and code comments were authored with the assistance of AI (Google Antigravity).
