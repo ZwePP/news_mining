@@ -1,3 +1,9 @@
+/*
+Overview: Creates tables for the cleaned silver layer (silver.real_news, silver.fake_news).
+Example Usage:
+    psql -U <username> -d news_mining -f scripts/silver/ddl_silver.sql
+*/
+
 -- DDL for Silver -- 
 -- Removed unnecessary columns
 

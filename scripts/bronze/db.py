@@ -1,3 +1,9 @@
+"""
+Overview: Creates a SQLAlchemy database engine using credentials loaded from .env.
+Example Usage:
+    from db import db_engine
+    engine = db_engine()
+"""
 from sqlalchemy import create_engine
 import os
 from dotenv import load_dotenv

@@ -1,3 +1,8 @@
+"""
+Overview: Ingests raw fake news CSV data into the bronze layer table 'bronze.fake_news'.
+Example Usage:
+    python scripts/bronze/ingest_fake_news.py
+"""
 from pathlib import Path
 import pandas as pd 
 import db 

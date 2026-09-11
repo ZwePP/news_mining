@@ -1,3 +1,8 @@
+"""
+Overview: Ingests raw real news JSON data into the bronze layer table 'bronze.real_news'.
+Example Usage:
+    python scripts/bronze/ingest_real_news.py
+"""
 from pathlib import Path
 import pandas as pd 
 import db 

@@ -1,0 +1,32 @@
+AI Modification Log
+===================
+AI Assistant: Google Antigravity
+Date: 2026-09-11
+
+Role of AI:
+Documented the repository, added code comments with example usages, and logged changes as instructed in PROMPT.md.
+
+Changes Made:
+1. README.md:
+   - Added project overview, architecture (bronze/silver/gold), setup steps, execution instructions, dataset info, and AI acknowledgment.
+
+2. init_db.sql:
+   - Added overview comment and example psql execution command.
+
+3. scripts/bronze/db.py:
+   - Added overview docstring and engine creation example.
+
+4. scripts/bronze/ingest_fake_news.py:
+   - Added overview docstring and script execution example.
+
+5. scripts/bronze/ingest_real_news.py:
+   - Added overview docstring and script execution example.
+
+6. scripts/silver/ddl_silver.sql:
+   - Added overview comment and psql execution example.
+
+7. scripts/silver/proc_load_silver.sql:
+   - Added overview comment and procedure CALL example.
+
+8. ai_log.txt:
+   - Created this log file to document modifications and acknowledge AI contributions.
