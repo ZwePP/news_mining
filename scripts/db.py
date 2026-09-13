@@ -15,9 +15,10 @@ Usage:
 # =============================================================================
 # Database Engine Initialization
 # =============================================================================
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 import os
 from dotenv import load_dotenv
+
 
 load_dotenv()
 
@@ -32,6 +33,9 @@ def db_engine():
     engine = create_engine(
         f'postgresql://{pg_username}:{pg_password}@{pg_host}:{pg_port}/{pg_database}')
     return engine
+
+
+
 
 if __name__ == "__main__":
     print(db_engine())

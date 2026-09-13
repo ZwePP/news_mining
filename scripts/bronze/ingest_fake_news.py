@@ -16,7 +16,7 @@ Usage:
 # =============================================================================
 from pathlib import Path
 import pandas as pd 
-import db 
+import scripts.db as db 
 
 file_path = 'data/'
 fake_news_df = pd.read_csv(f'{file_path}/fake.csv')

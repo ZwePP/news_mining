@@ -36,8 +36,7 @@ AS $$
 		    CAST(published AS DATE) AS published_date,
 		    REGEXP_REPLACE(LOWER(TRIM(type)), '[^a-zA-Z\\s]', '', 'g') AS cleaned_type
 		FROM bronze.fake_news
-		WHERE title IS NOT NULL
-		OR text IS NOT NULL);
+		WHERE text IS NOT NULL);
 		RAISE NOTICE 'Insert silver.fake_news Complete';
 
 		RAISE NOTICE '------------------------------------';
@@ -59,10 +58,7 @@ AS $$
 			REGEXP_REPLACE(LOWER(TRIM(authors)), '[^a-zA-Z\\s]', '', 'g') AS cleaned_authors,
 			CAST(date AS DATE) AS cleaned_date
 		 FROM bronze.real_news
-		 WHERE 
-		 	headline != ''
-		 OR 
-		 	short_description != ''
+		 WHERE short_description != ''
 		);
 		RAISE NOTICE 'Insert silver.real_news Complete';
 		RAISE NOTICE '------------------------------------';

@@ -39,5 +39,3 @@ SELECT
     news_type AS source_type,
     1 AS is_fake  -- Target variable for ML (1 = Fake)
 FROM silver.fake_news;
-
-SELECT COUNT()* FROM gold.total_news;
