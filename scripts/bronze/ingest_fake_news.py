@@ -16,7 +16,13 @@ Usage:
 # =============================================================================
 from pathlib import Path
 import pandas as pd 
-import scripts.db as db 
+import sys
+import os
+
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(parent_dir)
+import db
+
 
 file_path = 'data/'
 fake_news_df = pd.read_csv(f'{file_path}/fake.csv')

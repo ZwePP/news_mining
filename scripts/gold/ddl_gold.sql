@@ -9,7 +9,7 @@ to produce an integrated dataset ready for machine learning and reporting.
 
 Usage:
     psql -U <username> -d news_mining -f scripts/gold/ddl_gold.sql
-    SELECT * FROM gold.total_news LIMIT 10;
+    SELECT * FROM gold.total_news LIMIT 1a0;
 ===============================================================================
 */
 
