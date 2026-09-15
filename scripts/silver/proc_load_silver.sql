@@ -30,11 +30,11 @@ AS $$
 			news_type
 		)SELECT * FROM (
             SELECT
-                TRIM(REGEXP_REPLACE(LOWER(title), '[^a-zA-Z\s]', '', 'g')) AS cleaned_title,
-                TRIM(REGEXP_REPLACE(LOWER("text"), '[^a-zA-Z\s]', '', 'g')) AS cleaned_text,
-                TRIM(REGEXP_REPLACE(LOWER(author), '[^a-zA-Z\s]', '', 'g')) AS cleaned_author,
+                TRIM(REGEXP_REPLACE(LOWER(title), '[^a-zA-Z[:space:]]', '', 'g')) AS cleaned_title,
+                TRIM(REGEXP_REPLACE(LOWER("text"), '[^a-zA-Z[:space:]]', '', 'g')) AS cleaned_text,
+                TRIM(REGEXP_REPLACE(LOWER(author), '[^a-zA-Z[:space:]]', '', 'g')) AS cleaned_author,
                 CAST(published AS DATE) AS published_date,
-                TRIM(REGEXP_REPLACE(LOWER(type), '[^a-zA-Z\s]', '', 'g')) AS cleaned_type
+                TRIM(REGEXP_REPLACE(LOWER(type), '[^a-zA-Z[:space:]]', '', 'g')) AS cleaned_type
             FROM bronze.fake_news
             WHERE "text" IS NOT NULL 
         ) AS cleaned_fake
@@ -56,9 +56,9 @@ AS $$
 		SELECT * FROM 
 			(
 				SELECT
-					REGEXP_REPLACE(LOWER(TRIM(headline)), '[^a-zA-Z\\s]', '', 'g') AS cleaned_headline,
-					REGEXP_REPLACE(LOWER(TRIM(short_description)), '[^a-zA-Z\\s]', '', 'g') AS cleaned_description,
-					REGEXP_REPLACE(LOWER(TRIM(authors)), '[^a-zA-Z\\s]', '', 'g') AS cleaned_authors,
+					TRIM(REGEXP_REPLACE(LOWER(headline), '[^a-zA-Z[:space:]]', '', 'g')) AS cleaned_headline,
+					TRIM(REGEXP_REPLACE(LOWER(short_description), '[^a-zA-Z[:space:]]', '', 'g')) AS cleaned_description,
+					TRIM(REGEXP_REPLACE(LOWER(authors), '[^a-zA-Z[:space:]]', '', 'g')) AS cleaned_authors,
 					CAST(date AS DATE) AS cleaned_date
 				FROM bronze.real_news
 				WHERE short_description IS NOT NULL
@@ -72,4 +72,4 @@ AS $$
 			RAISE NOTICE 'Error Occured During Loading Silver Layer';
 			RAISE NOTICE 'Error Message: %', SQLERRM;
 	END;
-$$
+$$;
