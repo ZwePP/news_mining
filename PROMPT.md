@@ -1,32 +1,19 @@
-# System-Prompt
+Required Information in your report
 
-1. You are tasked to write and document entire project
-   in a `README.md`.
+4. Data
 
-- Use images in `./docs` for documentation and explaining.
+5. Data Preparation (ETL)
 
-2.  Write a general ovterview comment in the code files wih an example usage.
-    Example /\*
-    ===============================================================================
-    DDL Script: Create Gold Views
-    ===============================================================================
-    Script Purpose:
-    This script creates views for the Gold layer in the data warehouse.
-    The Gold layer represents the final dimension and fact tables (Star Schema)
+6. Methods (Mining)
 
-        Each view performs transformations and combines data from the Silver layer
-        to produce a clean, enriched, and business-ready dataset.
+7. Output (Visualizations)
 
-Usage: - These views can be queried directly for analytics and reporting.
-===============================================================================
-\*/
+8. Results Discussion
 
--- =============================================================================
--- Create Dimension: gold.dim_customers
--- =============================================================================
+9. Conclusion
 
-- Use the least amount of tokens
-- Be short, concise and simple
-- Do not overengineeer or assume.
-- Do not change unless permitted, record what you change in a separate `docs/ai_log.txt`.
-- Remember to acknowledge the use of AI and what it did.
+10. References
+
+Generate appropriate codes for visualization the data mining. and other stuffs
+DO not over engineer and be simple with clear explanation
+If the process have been done, you can skip to the next step
